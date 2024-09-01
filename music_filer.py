@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 from os import listdir, path, makedirs
-from subprocess import run
 from re import sub
 from shutil import copyfile
 from sys import argv
