@@ -5,6 +5,7 @@ from re import sub
 from shutil import copyfile
 from sys import argv
 from zipfile import ZipFile
+import argparse
 
 import logging
 
@@ -12,10 +13,23 @@ logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel('INFO')
 
-SOURCE_DIR = argv[1]
-MUSIC_DIR = 'SETME'
-ARTIST_DIR_LIST = listdir(MUSIC_DIR)
-ARTIST_DIR_LIST_LOWERED = [artist.lower() for artist in ARTIST_DIR_LIST]
+def initArgs():
+    parser = argparse.ArgumentParser(
+        prog='Music_Filer',
+        description='Sorts your Music Downloads'
+    )
+    parser.add_argument(
+        '-downloads', '-d', 
+        help="Path to directory containing the downloads / .zip files (SOURCE)",
+        required=True
+    )
+    parser.add_argument(
+        '-library', '-l',
+        help="Path to the top level folder of your music library (DESTINATION)",
+        required=True
+    )
+    args = parser.parse_args()
+    return args
 
 def process_file(filename):
     logger.info('Now processing %s', filename)
@@ -68,4 +82,12 @@ def main():
 
 
 if __name__ == '__main__':
+    args = initArgs()
+    print(args)
+    # exit()
+    SOURCE_DIR = args.downloads
+    MUSIC_DIR = args.library
+    ARTIST_DIR_LIST = listdir(MUSIC_DIR)
+    ARTIST_DIR_LIST_LOWERED = [artist.lower() for artist in ARTIST_DIR_LIST]
+
     main()

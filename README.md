@@ -14,10 +14,10 @@ This program takes a directory containing files set up in exactly two ways:
 Additionally, since artists often change how they format their names over time, the program will search for artist names that look like the one in your file but with different capitalization, and ensure that your existing directory is used.
 
 ## Usage
-First, change the `MUSIC_DIR` variable in the file to the full path of your library.
-Then:
 
-    python music_filer.py <directory of your files>
+`python music_filer.py -h` to display help
+
+`python music_filer.py -d [path-to-downloads] -l [path-to-music-library]` to run 
 
 ## TODO
 
