@@ -140,8 +140,6 @@ def get_artist_directory(artist):
     '''Check existing artist directories for a directory with different capitalization,
     and prefer that capitalization if found'''
     artist_dir = None
-    print(type(artist))
-    print(artist)
     if artist.lower() in ARTIST_DIR_LIST_LOWERED:
         logger.info('Existing artist directory found for %s', artist)
         for directory in ARTIST_DIR_LIST:
