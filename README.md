@@ -19,7 +19,17 @@ Additionally, since artists often change how they format their names over time, 
 
 `python music_filer.py -d [path-to-downloads] -l [path-to-music-library]` to run 
 
+Toggles:
+`-t` to trust tags instead of filenames. This is particularly useful if you have single unsorted mp3s that belong on an album.
+
+`-c` to strip extraneous copyright text from artists and titles..
+
 ## TODO
 
 * Figure out what to do with files that contain ` - ` multiple times
 * Support more drastic artist name variations
+* Option to strip `(pre-order)` from pre-order albums
+* Error handling
+* Files should probably be class objects
+* Docker, hey why not
+* Add fins to lower wind resistance
