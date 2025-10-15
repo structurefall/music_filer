@@ -63,15 +63,14 @@ def _process_mp3_by_tags(filename, directory):
     '''Check mp3 tags for artist and title. If no album, use the track name.'''
     logger.info("Source dir: %s", SOURCE_DIR)
     mp3 = Mp3File(path.join(directory, filename))
-    
-    if filename.endswith('m4a'):
-        artist_tag = '©ART'
-    else:
-        artist_tag = 'TPE1'
-    artist = mp3.tags[artist_tag].text[0]
 
     if filename.endswith('m4a'):
-        title = mp3.tags['©alb']
+        artist = mp3.tags['©ART'][0]
+    else:
+        artist = mp3.tags['TPE1'].text[0]
+
+    if filename.endswith('m4a'):
+        title = mp3.tags['©alb'][0]
     elif 'TALB' in mp3.tags.keys():
         title = mp3.tags['TALB'].text[0]
     else:
