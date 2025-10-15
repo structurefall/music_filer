@@ -105,7 +105,7 @@ def process_file(filename):
     logger.info('Now processing %s', filename)
     if filename.endswith('.zip'):
         filetype = 'zip'
-    elif filename.endswith('.mp3'):
+    elif filename.endswith('.mp3') or filename.endswith('.m4a'):
         filetype = 'mp3'
     else:
         logger.warn('Invalid file: %s', filename)
@@ -115,7 +115,7 @@ def process_file(filename):
         artist, title = process_by_tags(filename, filetype)
     else:
         artist = sub(r' - .*', str(), filename)
-        title = sub(r'.* - (.*)\.(zip|mp3)', r'\1', filename)
+        title = sub(r'.* - (.*)\.(zip|mp3|m4a)', r'\1', filename)
 
     if COPYRIGHT_TRIM:
         artist, title = copyright_trim(artist, title)
