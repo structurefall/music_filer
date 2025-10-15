@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/home/eric/music_filer/bin/python
 
 from argparse import ArgumentParser
 from os import getcwd, listdir, path, makedirs
